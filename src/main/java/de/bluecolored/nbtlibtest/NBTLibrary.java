@@ -71,8 +71,9 @@ public interface NBTLibrary {
             default -> throw new IOException("Unknown chunk compression-id: " + compressionTypeId);
         };
 
-        InputStream in = new BufferedInputStream(compression.decompress(new ByteArrayInputStream(dataBuffer, 5, size - 5)));
-        return loadChunk(in);
+        try (InputStream in = new BufferedInputStream(compression.decompress(new ByteArrayInputStream(dataBuffer, 5, size - 5)))) {
+            return loadChunk(in);
+        }
     }
 
     Chunk loadChunk(InputStream in) throws IOException;
