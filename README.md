@@ -1,9 +1,9 @@
 # NBT Library Comparison
 
 ## Test Setup
-Tests were run on Windows 10 | Java 17
-CPU: i7-8700K | RAM: 64GB 4000 MHz
-Disk: Samsung SSD 970 EVO Plus
+Tests were run on Windows 10 | Java 17  
+CPU: i7-8700K | RAM: 64GB 4000 MHz  
+Disk: Samsung SSD 970 EVO Plus  
 
 The same region-files were used for each test-run.  
 209 region files with 164824 chunks.  
