@@ -1,9 +1,6 @@
 package de.bluecolored.nbtlibtest;
 
-import java.io.ByteArrayInputStream;
-import java.io.EOFException;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.channels.ReadableByteChannel;
@@ -74,7 +71,7 @@ public interface NBTLibrary {
             default -> throw new IOException("Unknown chunk compression-id: " + compressionTypeId);
         };
 
-        InputStream in = compression.decompress(new ByteArrayInputStream(dataBuffer, 5, size - 5));
+        InputStream in = new BufferedInputStream(compression.decompress(new ByteArrayInputStream(dataBuffer, 5, size - 5)));
         return loadChunk(in);
     }
 

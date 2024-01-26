@@ -23,7 +23,6 @@ public class QuerzLibrary implements NBTLibrary {
 
     @Override
     public Chunk loadChunk(InputStream in) throws IOException {
-        MCAUtil.read()
         CompoundTag data = (CompoundTag) nbt.fromStream(in).getTag();
         return new ChunkImpl(
                 data.getInt("DataVersion"),
