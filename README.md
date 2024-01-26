@@ -1,5 +1,13 @@
 # NBT Library Comparison
 
+## Build
+Run `./gradlew clean shadowJar`
+You'll find the built jar in `./build/libs`.
+
+## Run
+To run, put the jar file next to a folder named `regions` containing all the region-files you want to run the test against.
+Then run `java jar NBTLibraryComparison-1.0-all.jar <library>`
+
 ## Test Setup
 Tests were run on Windows 10 | Java 17  
 CPU: i7-8700K | RAM: 64GB 4000 MHz  
