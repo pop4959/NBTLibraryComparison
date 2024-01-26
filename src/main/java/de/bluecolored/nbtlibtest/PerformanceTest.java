@@ -1,8 +1,6 @@
 package de.bluecolored.nbtlibtest;
 
-import de.bluecolored.nbtlibtest.libs.BlueNBTLibrary;
-import de.bluecolored.nbtlibtest.libs.KyoriLibrary;
-import de.bluecolored.nbtlibtest.libs.QuerzLibrary;
+import de.bluecolored.nbtlibtest.libs.*;
 import lombok.RequiredArgsConstructor;
 
 import java.io.IOException;
@@ -70,6 +68,9 @@ public class PerformanceTest {
         NBTLibrary library = switch (lib) {
             case "querz" -> new QuerzLibrary();
             case "kyori" -> new KyoriLibrary();
+            case "chunky" -> new ChunkyLibrary();
+            case "bluenbtFull" -> new BlueNBTLoadFullChunkLibrary();
+            case "bluenbtDirect" -> new BlueNBTDirectLibrary();
             default -> new BlueNBTLibrary();
         };
 

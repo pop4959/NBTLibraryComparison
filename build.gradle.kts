@@ -9,12 +9,14 @@ version = "1.0"
 repositories {
     mavenCentral()
     maven("https://jitpack.io")
+    maven("https://repo.codemc.io/repository/maven-public/")
 }
 
 dependencies {
     implementation (group = "net.kyori", name = "adventure-nbt", version = "4.11.0")
     implementation (group = "com.github.BlueMap-Minecraft", name = "BlueNBT", version = "v1.3.0")
     implementation (group = "com.github.Querz", name = "NBT", version = "6.1")
+    implementation (group = "org.popcraft", name = "chunky-common", version = "1.3.38")
 
     compileOnly ("org.projectlombok:lombok:1.18.28")
 
