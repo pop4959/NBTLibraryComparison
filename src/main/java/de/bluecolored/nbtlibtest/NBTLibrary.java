@@ -84,14 +84,16 @@ public interface NBTLibrary {
     }
 
     private static void readFully(ReadableByteChannel src, ByteBuffer bb, int off, int len) throws IOException {
-        int n = 0;
-        while (n < len) {
-            bb.limit(Math.min(off + len, bb.capacity()));
-            bb.position(off);
-            int count = src.read(bb);
-            if (count < 0) throw new EOFException();
-            n += count;
-        }
+        int limit = off + len;
+        if (limit > bb.capacity()) throw new IllegalArgumentException("buffer too small");
+
+        bb.limit(limit);
+        bb.position(off);
+
+        do {
+            int read = src.read(bb);
+            if (read < 0) throw new EOFException();
+        } while (bb.remaining() > 0);
     }
 
 }
