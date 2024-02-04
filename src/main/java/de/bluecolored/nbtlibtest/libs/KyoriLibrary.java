@@ -17,11 +17,6 @@ public class KyoriLibrary implements NBTLibrary {
     public Chunk loadChunk(InputStream in) throws IOException {
         CompoundBinaryTag data = BinaryTagIO.unlimitedReader().read(in);
         return new ChunkImpl(
-                data.getInt("DataVersion"),
-                data.getInt("xPos"),
-                data.getInt("yPos"),
-                data.getInt("zPos"),
-                data.getLong("InhabitedTime"),
                 data.getString("Status")
         );
     }
@@ -30,11 +25,6 @@ public class KyoriLibrary implements NBTLibrary {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class ChunkImpl implements Chunk {
-        private int dataVersion;
-        private int xPos;
-        private int yPos;
-        private int zPos;
-        private long inhabitedTime;
         private String status;
     }
 

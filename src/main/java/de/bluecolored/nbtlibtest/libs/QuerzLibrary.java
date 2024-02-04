@@ -25,11 +25,6 @@ public class QuerzLibrary implements NBTLibrary {
     public Chunk loadChunk(InputStream in) throws IOException {
         CompoundTag data = (CompoundTag) nbt.fromStream(in).getTag();
         return new ChunkImpl(
-                data.getInt("DataVersion"),
-                data.getInt("xPos"),
-                data.getInt("yPos"),
-                data.getInt("zPos"),
-                data.getLong("InhabitedTime"),
                 data.getString("Status")
         );
     }
@@ -38,11 +33,6 @@ public class QuerzLibrary implements NBTLibrary {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class ChunkImpl implements Chunk {
-        private int dataVersion;
-        private int xPos;
-        private int yPos;
-        private int zPos;
-        private long inhabitedTime;
         private String status;
     }
 

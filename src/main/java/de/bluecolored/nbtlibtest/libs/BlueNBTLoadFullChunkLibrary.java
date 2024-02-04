@@ -20,11 +20,6 @@ public class BlueNBTLoadFullChunkLibrary implements NBTLibrary {
     public Chunk loadChunk(InputStream in) throws IOException {
         Map<String, Object> data = (Map<String, Object>) blueNBT.read(in, Object.class);
         return new ChunkImpl(
-                (int) data.get("DataVersion"),
-                (int) data.get("xPos"),
-                (int) data.get("yPos"),
-                (int) data.get("zPos"),
-                (long) data.get("InhabitedTime"),
                 (String) data.get("Status")
         );
     }
@@ -33,11 +28,6 @@ public class BlueNBTLoadFullChunkLibrary implements NBTLibrary {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class ChunkImpl implements Chunk {
-        private int dataVersion;
-        private int xPos;
-        private int yPos;
-        private int zPos;
-        private long inhabitedTime;
         private String status;
     }
 

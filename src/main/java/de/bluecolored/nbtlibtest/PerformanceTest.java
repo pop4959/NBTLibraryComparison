@@ -68,6 +68,7 @@ public class PerformanceTest {
         NBTLibrary library = switch (lib) {
             case "querz" -> new QuerzLibrary();
             case "kyori" -> new KyoriLibrary();
+            case "chunkyFull" -> new ChunkyLoadFullChunkLibrary();
             case "chunky" -> new ChunkyLibrary();
             case "bluenbtFull" -> new BlueNBTLoadFullChunkLibrary();
             case "bluenbtDirect" -> new BlueNBTDirectLibrary();

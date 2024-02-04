@@ -19,14 +19,10 @@ public class BlueNBTDirectLibrary implements NBTLibrary {
 
         reader.beginCompound();
         while (reader.hasNext()) {
-            switch (reader.name()) {
-                case "DataVersion" -> chunk.dataVersion = reader.nextInt();
-                case "xPos" -> chunk.xPos = reader.nextInt();
-                case "yPos" -> chunk.yPos = reader.nextInt();
-                case "zPos" -> chunk.zPos = reader.nextInt();
-                case "InhabitedTime" -> chunk.inhabitedTime = reader.nextLong();
-                case "Status" -> chunk.status = reader.nextString();
-                default -> reader.skip();
+            if (reader.name().equals("Status")) {
+                chunk.status = reader.nextString();
+            } else {
+                reader.skip();
             }
         }
         reader.endCompound();
@@ -38,11 +34,6 @@ public class BlueNBTDirectLibrary implements NBTLibrary {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class ChunkImpl implements Chunk {
-        private int dataVersion;
-        private int xPos;
-        private int yPos;
-        private int zPos;
-        private long inhabitedTime;
         private String status;
     }
 
