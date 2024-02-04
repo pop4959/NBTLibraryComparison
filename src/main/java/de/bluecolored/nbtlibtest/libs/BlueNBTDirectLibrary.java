@@ -21,6 +21,7 @@ public class BlueNBTDirectLibrary implements NBTLibrary {
         while (reader.hasNext()) {
             if (reader.name().equals("Status")) {
                 chunk.status = reader.nextString();
+                return chunk;
             } else {
                 reader.skip();
             }
